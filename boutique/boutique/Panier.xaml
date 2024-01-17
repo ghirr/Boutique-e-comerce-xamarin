@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="boutique.Panier">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout>
+                    <ListView x:Name="listPanier" RowHeight="70" VerticalOptions="FillAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" Padding="10" VerticalOptions="Center">
+                                        <StackLayout Orientation="Horizontal" MinimumWidthRequest="70">
+                                            <Label Text="{Binding Nom}" VerticalOptions="Center" WidthRequest="90"/>
+                                            <Label Text="{Binding Prix}" VerticalOptions="Center" WidthRequest="90"/>
+                                        </StackLayout>
+                                        <Image Source="{Binding UrlImage}" WidthRequest="40"/>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                            <Stepper Minimum="1" Maximum="10" x:Name="stepper" Increment="1" Value="{Binding Quantite}" ValueChanged="Stepper_ValueChanged" />
+                                            <Label BindingContext="{x:Reference stepper}" Text="{Binding Value}" VerticalOptions="Center"/>
+                                        </StackLayout>
+                                        <ImageButton Source="supprimer.png" HeightRequest="30" WidthRequest="30" Clicked="SupprimerPanier" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="totalPanier" />
+                <Entry x:Name="nomClient" Placeholder="Entrez votre nom" />
+                <Button  Text="Commander"  CornerRadius="20"  HorizontalOptions="EndAndExpand" Clicked="Commander" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

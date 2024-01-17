@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="boutique.homeDetail" BackgroundColor="WhiteSmoke"
+             Title="Home">
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+        <Image Source="store.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFit"/>
+        <Label Text="Welcome to Our Store!" FontSize="20" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" TextColor="Black"/>
+        <Button Text="Shop Now"  HorizontalOptions="CenterAndExpand" Clicked="Shop" Margin="0,20,0,0" CornerRadius="20"/>
+    </StackLayout>
+</ContentPage>

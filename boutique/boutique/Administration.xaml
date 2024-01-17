@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="boutique.Administration">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Frame CornerRadius="100" Margin="0,20,0,0"
+           HeightRequest="200"
+           WidthRequest="200"
+           HorizontalOptions="Center"
+           Padding="0"
+           IsClippedToBounds="True">
+                <Image Source="user.jpg" HeightRequest="250" WidthRequest="250"   />
+            </Frame>
+
+            <Label Text="Login" FontSize="Large" HorizontalOptions="Center" />
+
+            <Grid Margin="0,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Text="Email:" Grid.Row="0" Grid.Column="0" />
+                <Label Text="Password:" Grid.Row="1" Grid.Column="0" />
+
+                <Entry x:Name="email" Placeholder="Enter your email" Grid.Row="0" Grid.Column="1" />
+                <Entry x:Name="password" Placeholder="Enter your password" IsPassword="True" Grid.Row="1" Grid.Column="1" />
+            </Grid>
+
+            <Button Text="Login" BackgroundColor="#213285" Clicked="Login" CornerRadius="20" WidthRequest="200" Margin="0,30,0,0"  HorizontalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="boutique.DashAdmin"
+            BarBackgroundColor="#AAD9BB"
+             >
+    <ContentPage Title="Ajout Categorie" >
+        <ContentPage.Content>
+             <StackLayout Padding="20">
+                <Label Text="Ajout de Catégorie" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,50,0,20" TextColor="#F5DF4D" />
+                <StackLayout Margin="0,50">
+                    <Label Text="Nom de la Catégorie" TextColor="#00A170"/>
+            <Entry x:Name="nomCategorie" Placeholder="Entrez le nom de la catégorie" />
+
+                    <Button Text="Ajouter" Clicked="AjouterCategorie"  CornerRadius="20" BackgroundColor="#A0DAA9"/>  
+                </StackLayout>
+            
+
+        </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Lister Categories">
+        <ContentPage.Content>
+            <StackLayout>
+                <Label Text="List de Catégories" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,50,0,20" TextColor="#F5DF4D" />
+                <ListView x:Name="categoriesListView" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="10">
+                                    <Label Text="{Binding Id}" VerticalOptions="CenterAndExpand" FontSize="20" />
+                                    <Label Text="{Binding Nom}" VerticalOptions="CenterAndExpand" FontSize="30" />
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                        <!-- Modifier Button -->
+                                        <ImageButton Source="modifier.png" HeightRequest="30" WidthRequest="30" Clicked="modifierCategorie" />
+
+                                        <!-- Supprimer Button -->
+                                        <ImageButton Source="supprimer.png" HeightRequest="30" WidthRequest="30" Clicked="SupprimerCategorie" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Ajout Produit">
+        <ContentPage.Content>
+            <StackLayout Padding="20">
+                <Label Text="Ajout de Produit" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,50,0,20" TextColor="#F5DF4D" />
+
+                <!-- Nom du produit -->
+                <Label Text="Nom du Produit" />
+                <Entry x:Name="nomProduitEntry" Placeholder="Entrez le nom du produit" />
+
+                <!-- Description du produit -->
+                <Label Text="Description" />
+                <Entry x:Name="descriptionProduitEntry" Placeholder="Entrez la description du produit" />
+
+                <!-- Prix du produit -->
+                <Label Text="Prix" />
+                <Entry x:Name="prixProduitEntry" Placeholder="Entrez le prix du produit" Keyboard="Numeric" />
+
+                <!-- image du produit -->
+                <Label Text="Image" />
+                <Entry x:Name="imageProduitEntry" Placeholder="Entrez l'URL de l'image" Keyboard="Text" />
+
+                <!-- Catégorie du produit -->
+                <Label Text="Catégorie" />
+                <Picker x:Name="categoriePicker" Title="Sélectionnez une catégorie" />
+
+                <Button Text="Ajouter" Clicked="AjouterProduit"  CornerRadius="20" BackgroundColor="#A0DAA9"/>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="lister Produit">
+        <ContentPage.Content>
+            <StackLayout>
+                <ListView x:Name="produitsListView" HasUnevenRows="True" ItemTapped="OnItemLongPress" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="10" >
+                                    <Image Source="{Binding UrlImage}"  WidthRequest="30" HeightRequest="30" Aspect="AspectFill"  />
+                                    <Label Text="{Binding Nom}" VerticalOptions="CenterAndExpand" FontSize="16" />
+                                    <Label Text="{Binding Prix, StringFormat='{0:C}'}" VerticalOptions="CenterAndExpand" FontSize="13" />
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                        <!-- Modifier Button -->
+                                        <ImageButton Source="modifier.png" Clicked="ModifierProduit" HeightRequest="30" WidthRequest="30"  />
+
+                                        <!-- Supprimer Button -->
+                                        <ImageButton Source="supprimer.png" Clicked="SupprimerProduit" HeightRequest="30" WidthRequest="30"  />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Comandes">
+
+        <StackLayout>
+            <!-- ListView pour afficher les commandes -->
+            <ListView x:Name="listViewCommandes" ItemSelected="OnCommandeSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding NomClient}"  />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- ListView pour afficher les lignes de commande -->
+            <ListView x:Name="listViewLignesCommande">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Quantite, StringFormat='Quantité: {0}'}" Detail="{Binding IdProduit}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </ContentPage>
+</TabbedPage>

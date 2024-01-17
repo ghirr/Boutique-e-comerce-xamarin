@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="boutique.ModifierCategory">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Modifier la Catégorie" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,50,0,20" TextColor="#F5DF4D" />
+            <StackLayout Margin="0,50">
+                <Label Text="Changer Nom" TextColor="#00A170"/>
+                <Entry x:Name="nomCategorie" Placeholder="Entrez le nom de la catégorie" />
+
+                <Button Text="Modifier" Clicked="ModifierProduit"  CornerRadius="20" BackgroundColor="#A0DAA9"/>
+            </StackLayout>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

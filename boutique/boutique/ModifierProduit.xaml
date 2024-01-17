@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="boutique.ModifierProduit">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Modifier Produit" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,50,0,20" TextColor="#F5DF4D" />
+
+            <!-- Nom du produit -->
+            <Label Text="Nom du Produit" />
+            <Entry x:Name="nomProduitEntry" Placeholder="Entrez le nom du produit" />
+
+            <!-- Description du produit -->
+            <Label Text="Description" />
+            <Entry x:Name="descriptionProduitEntry" Placeholder="Entrez la description du produit" />
+
+            <!-- Prix du produit -->
+            <Label Text="Prix" />
+            <Entry x:Name="prixProduitEntry" Placeholder="Entrez le prix du produit" Keyboard="Numeric" />
+
+            <!-- image du produit -->
+            <Label Text="Image" />
+            <Entry x:Name="imageProduitEntry" Placeholder="Entrez l'URL de l'image" Keyboard="Text" />
+
+            <!-- Catégorie du produit -->
+            <Label Text="Catégorie" />
+            <Picker x:Name="categoriePicker" Title="Sélectionnez une catégorie" />
+
+            <Button Text="Modifier" Clicked="Modifierproduit"  CornerRadius="20" BackgroundColor="#A0DAA9"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
